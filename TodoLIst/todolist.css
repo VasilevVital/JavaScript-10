@@ -1,0 +1,20 @@
+
+
+form > * {
+    display: block;
+    margin-top: 1em;
+}
+​
+li.completed {
+    text-decoration: line-through;
+}
+
+#col-sm-4{
+    background-color: #e6e6fa;
+    float: left;
+}
+
+#col-sm-8{
+    background-color: #fff0f5;
+    float: right;
+}

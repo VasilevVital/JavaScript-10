@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example TODO App v2</title>
+    <link href="todolist.css" type="text/css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">todo app</a>
+                </div>
+                <div>
+                    </div>
+                </div>
+            </nav>
+        <form role="form">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-4" style="background-color:lavender;">
+                <textarea class="form-control" rows="1" placeholder="To-do task" name="text"></textarea>
+                <br>
+                <strong>Due:</strong>
+                <br>
+                <input type="date" name="due">
+                <button type="submit" value="submit">Add Task</button>
+            </div>
+            <div class="col-sm-8" style="background-color:lavenderblush;">
+                <h1>Tasks</h1>
+                <ul id="list"></ul>
+
+                <label><input type="checkbox" name="completed"> Completed</label>            ​
+            </div>
+
+        </form>
+    </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="todo.js" type="text/javascript"></script>
+</body>
+</html>

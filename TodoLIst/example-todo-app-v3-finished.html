@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Example TODO App v3</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <style>
+            li {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-default">
+            <div class="container">
+                <a href="#" class="navbar-brand">To-do app</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <form id="myForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Add new task" name="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Due:</label>
+                            <input type="date" name="due" class="form-control">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-sm-8">
+                    <h3>Tasks</h3>
+                    <ul id="list" class="list-group"></ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script src="jquery.min.js"></script>
+        <script type="text/javascript">
+            // toggle the disabled class
+            var toggleCompletion = function(li) {
+                // if the class attribute is empty or doesn't contain "disabled", append it
+                if (li.className === '' || li.className.indexOf('disabled') == -1) {
+                    li.className += ' disabled';
+                } else {
+                    // otherwise find "disabled" in the class and replace it with an empty string to remove it
+                    li.className = li.className.replace('disabled', '');
+                }
+            };
+
+            // Make sure the page finishes loading before running my code, and keep my stuff out of the global scope
+            window.onload = function () {
+                // My tasks in JS
+                var tasks = [];
+
+                // Select the list, button, and the text elements
+                var taskForm = document.forms[0];
+                var taskList = document.getElementById('list');
+
+                // When you click the button, add the task, and re-render all tasks
+
+
+                taskForm.onsubmit = function () {
+                    //form elements
+                    var due = taskForm.elements['due'];
+                    var text = taskForm.elements['text'];
+
+                    // make a new task and fill the values
+                    var tempTask = {
+                        text:text.value,
+                        due:due.value,
+                        completed:false
+                    };
+
+                    // add to the JS tasks
+                    tasks.push(tempTask);
+
+                    // re-render all tasks
+                    renderTasks();
+
+                    due.value = '';
+                    text.value = '';
+
+                    return false;
+                };
+
+                var renderTasks = function () {
+                    // re-render the tasks
+                    taskList.innerHTML = "";
+
+                    $.each(tasks, function(index, task){
+                        console.log(tasks[index], text);
+                    });
+
+                    for (var i = 0; i < tasks.length; i++) {
+                        // create <li>
+                        var li = document.createElement('li');
+
+                        // Add bootstrap class
+                        li.className = 'list-group-item';
+
+                        // If task has a due date, display it
+                        if (tasks[i].due) {
+                            // add the text to the <li>
+                            li.innerText = tasks[i].text + ' (due on ' + tasks[i].due + ')';
+                        } else {
+                            li.innerText = tasks[i].text;
+                        }
+
+                        if (tasks[i].completed) {
+                            li.className = 'completed';
+                        }
+
+                        // Set up a click event for toggling completion on the new list item
+                        li.setAttribute('onclick', 'toggleCompletion(this)');
+
+                        // add the <li> to the <ul>
+                        taskList.appendChild(li);
+                    }
+                };
+
+            };
+        </script>
+    </body>
+</html>

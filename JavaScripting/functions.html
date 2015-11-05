@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Open the Developer Tools</h1>
+
+    <p>Here is the output of the script:</p>
+
+    <p id="number"></p>
+    <script type="text/javascript">
+
+
+        function multiply(number1,number2){
+            return number1 * number2;
+        }
+
+        alert("We're going to multiply two numbers. Click OK to begin.");
+
+        var a = prompt('What is your first number?');
+        var b = prompt('What is your second number?');
+
+        var product = multiply(a, b);
+
+        alert("Your product is: " + product);
+        document.getElementById("number").innerHTML = multiply(a,b);
+    </script>
+</body>
+</html>

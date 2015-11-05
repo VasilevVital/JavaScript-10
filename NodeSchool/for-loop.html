@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Usage</title>
+</head>
+<body>
+  <h1>Open the Developer Tools</h1>
+
+  <script type="text/javascript">
+    var pets = ['cat', 'dog', 'rat'];
+    console.log(pets);
+
+    var last = pets.length - 1;
+
+    // loo over every iten in the pets array and add and 's' to the end
+
+    for (var i = 0; i < pets.length; i++;){
+      console.log('value of i: ' + i);
+      pets[i] =pets[i] + 's';
+    }
+
+    console.log(pets);
+
+    // loop over every item in the pets array and add and 'my ' to the front
+
+    for (var i in pets){
+      pets[i] = 'my ' + pets[i];
+    }
+
+    console.log(pets);
+
+  </script>
+
+</body>
+</html>

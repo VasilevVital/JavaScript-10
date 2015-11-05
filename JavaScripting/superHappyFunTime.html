@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="first">Execute</button>
+
+ <button id="w3c">Execute</button>
+
+<!--This is for the table and this will activate over mouseover-->
+<!--<table id="star_table">
+    <tr>
+        <td><img src="star_off.gif"><td>
+        <td><img src="star_off.gif"><td>
+        <td><img src="star_off.gif"><td>
+        ...
+    <tr>
+    </tr>
+    <td><img src="star_off.gif"><td>
+    <td><img src="star_off.gif"><td>
+    <td><img src="star_off.gif"><td>
+    ...
+    <tr>
+
+</table>-->
+<script>
+
+    // Change color to Execute button :)
+    document.getElementById('first').onclick = function(){
+        this.style.background = "#ff8";
+    };
+
+    // Add event listener :)
+    var button = document.getElementById('w3c');
+    var setBackgroundYellow = function() {
+        this.style.background = '#ff8';
+    };
+
+    button.addEventListener('click', setBackgroundYellow , false);
+
+    /*sample EventListener
+    var button = document.getElementById('w3c');
+    button.addEventListener('click', function() {this.style.background = '#ff8';}, false);
+
+
+    Bonus:
+    button.addEventListener('click', function() {alert('Hello');}, false);
+    */
+
+    //remove EventListener (won't work without an image to reference but look at the code
+   /* var img = document.getElementById('once_star');
+    var clickFunc = function() {
+        alert('Hello');
+        img.removeEventListener('click', clickFunc, false);
+    };
+    img.addEventListener('click', clickFunc, false); */
+
+    //Event listener to table
+    /*
+     var func = function(e) {
+     if (e.target.src) {
+     e.target.src = 'star_on.gif';
+     }
+     };
+     document.getElementById('star_table').addEventListener('mouseover', func, false);
+     */
+
+</script>
+</body>
+</html>
